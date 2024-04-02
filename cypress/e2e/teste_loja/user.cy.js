@@ -12,7 +12,7 @@ describe('Testes de usuario', () => {
 });
 
 it('Deve validar contrato de usuario', () => {
-    cy.request('http://lojaebac.ebaconline.art.br/public/addUser').then(response => {
+    cy.request('public/addUser').then(response => {
         return contrato.validateAsync(response.body)
     })
 });
@@ -22,7 +22,7 @@ it('Deve validar contrato de usuario', () => {
 it('Deve cadastrar usuario', () => {
     cy.request({
         method: 'POST',
-        url: 'http://lojaebac.ebaconline.art.br/public/addUser',
+        url: 'public/addUser',
         body: {
             "email": faker.internet.email(),
             "phone": "345555555",
@@ -40,7 +40,7 @@ it('Deve cadastrar usuario', () => {
 it.only('Deve alterar o usuario', () => {
     cy.request({
         method: 'PUT',
-        url: 'http://lojaebac.ebaconline.art.br/api/editUser/6608bf414cd5a2e84942f9c7',
+        url: 'api/editUser/6608bf414cd5a2e84942f9c7',
         body: {
 
             "firstName": faker.internet.displayName,
@@ -57,7 +57,7 @@ it.only('Deve alterar o usuario', () => {
 it('Deve Deletar o usuario', () => {
     cy.request({
         method: 'DELETE',
-        url: 'http://lojaebac.ebaconline.art.br//api/deleteUser/6608bf414cd5a2e84942f9c7',
+        url: 'api/deleteUser/6608bf414cd5a2e84942f9c7',
         headers: { authorization: token }
     }).then(response => {
         expect(response.status).to.equal(200)//retorno status code
@@ -67,23 +67,5 @@ it('Deve Deletar o usuario', () => {
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
 

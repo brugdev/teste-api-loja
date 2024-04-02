@@ -11,7 +11,7 @@ describe('Testes de usuario', () => {
 });
 
 it.only('Deve validar contrato de endereco', () => {
-    cy.request('http://lojaebac.ebaconline.art.br/api/addAddress').then(response => {
+    cy.request('api/addAddress').then(response => {
         return contrato.validateAsync(response.body)
     })
 });
@@ -20,7 +20,7 @@ it.only('Deve validar contrato de endereco', () => {
 it('Deve cadastrar um endereco', () => {
     cy.request({
         method: 'POST',
-        url: 'http://lojaebac.ebaconline.art.br/api/addAddress',
+        url: 'api/addAddress',
         body: {
             "authorization": token,
             "name": faker.name.firstName,
@@ -39,7 +39,7 @@ it('Deve cadastrar um endereco', () => {
 it('Deve alterar um endereco', () => {
     cy.request({
         method: 'PUT',
-        url: 'http://lojaebac.ebaconline.art.br/api/editAddress/6608bf414cd5a2e84942f9c7',
+        url: 'api/editAddress/6608bf414cd5a2e84942f9c7',
         body: {
             "authorization": token,
             "phone": faker.phone,
@@ -53,7 +53,7 @@ it('Deve alterar um endereco', () => {
 it('Deve DELETAR um endereco', () => {
     cy.request({
         method: 'DELETE',
-        url: 'http://lojaebac.ebaconline.art.br/api/deleteAddress/6608bf414cd5a2e84942f9c7',
+        url: 'api/deleteAddress/6608bf414cd5a2e84942f9c7',
 
     }).then(response => {
         expect(response.status).to.equal(200)//retorno status code
