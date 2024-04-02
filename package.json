@@ -1,0 +1,17 @@
+{
+  "name": "test_api_loja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1"
+  },
+  "dependencies": {
+    "joi": "^17.12.2"
+  }
+}
